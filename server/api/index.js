@@ -72,9 +72,6 @@ router.post('/posts', async (req, res, next) => {
 })
 
 router.put('/posts/:id', async (req, res, next) => {
-  console.log(`TEST`)
-
-  
   if (!req.user) {
     return res.status(401).send("Invalid login credentials.");
   } else {
@@ -96,18 +93,15 @@ router.put('/posts/:id', async (req, res, next) => {
 
       })
       res.status(204).send("SUCESSFULY UPDATED")
-      
+
     } catch (error) {
       res.status(400).send("FAILED TO UPDATE")
-      
     }
-}
+  }
 })
 
-
-
 router.delete('/posts/:id', async (req, res, next) => {
-  
+
   if (!req.user) {
     return res.status(401).send("Invalid login credentials.");
   } else {
